@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: client-prod
+  name: client-pod
   labels:
     component: web
 spec:
   containers:   
     - name: client
-      image: rcamposs/multi-client
+      image: rcamposs/multi-worker
       ports: 
         - containerPort: 3000
