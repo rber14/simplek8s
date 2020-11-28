@@ -1,7 +1,5 @@
-#want to use an object thats define in apiversion v1
-apiVersion: apps/v1
-#specific type we want
-kind: Deployment
+apiVersion: apps/v1 #want to use an object thats define in apiversion v1
+kind: Deployment #specific type we want
 metadata: 
   name: client-deployment # names onject created by config file
 spec:
