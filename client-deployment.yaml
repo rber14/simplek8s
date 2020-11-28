@@ -1,0 +1,22 @@
+#want to use an object thats define in apiversion v1
+apiVersion: apps/v1
+#specific type we want
+kind: Deployment
+metadata: 
+  name: client-deployment # names onject created by config file
+spec:
+  replicas: 1 # specifies number of diff pod being created, can choose more than one, they will be identical seperate pods
+  selector: # Master creates pod, deployment just reaches out. Deployment needs a handle after pod is created. To get a handle it looks for comonent web
+    matchLabels:
+      component: web
+  template: # listing out config going to be used for every pod created by this deployment. This is the template for the pods.
+    metadata:
+      labels:
+        components: web # pod will have label of component 'web'
+    spec: 
+      containers: # inside this pod we will have this container with the name of client using this image with this port
+        - name: client
+          image: rcamposs/multi-client
+          ports: 
+             - containerPort: 3000
+
