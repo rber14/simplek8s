@@ -1,12 +1,12 @@
-apiVersion: v1
-kind: Service
+apiVersion: v1 # defines different set of obj we can use
+kind: Service # object of type 
 metadata: 
   name: client-node-port
 spec:
-  type: NodePort
+  type: NodePort # subtype service of 
   ports:
-    - port: 3050
-      targetPort: 3000
-      nodePort: 31515
-  selector:
-    component: web
+    - port: 3050 # any other object can reach this pod via
+      targetPort: 3000 #  3000 inside this pod
+      nodePort: 31515 # dev, nodePort, used to access via our browser. Between 30000-32767, if not specified random one assigned
+  selector: # use label selector system so objects get linked, here we look for any other pod that has compnent value web to direct traffic there. Names need to match
+    component: web 

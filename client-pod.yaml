@@ -1,12 +1,12 @@
-apiVersion: v1
-kind: Pod
-metadata:
+apiVersion: v1  
+kind: Pod # object of type
+metadata:  
   name: client-pod
-  labels:
+  labels: 
     component: web
 spec:
-  containers:   
-    - name: client
-      image: rcamposs/multi-worker
+  containers:   # this pod will run this container
+    - name: client  # to reference / logging / networking
+      image: rcamposs/multi-worker  # image from dockerhub 
       ports: 
-        - containerPort: 9999
+        - containerPort: 9999  # on this container , expose port <> outside
